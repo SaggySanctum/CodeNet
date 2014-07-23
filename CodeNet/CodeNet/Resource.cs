@@ -11,6 +11,8 @@ namespace CodeNet
 
         public Type Type { get; set; }
 
+        public List<object> Properties { get; set; }
+
         public override bool Equals(object obj)
         {
             if (!obj.GetType().Equals(typeof(Resource)))
@@ -32,5 +34,6 @@ namespace CodeNet
 
             return true;
         }
+
     }
 }
