@@ -10,10 +10,10 @@ namespace CodeNet
     {
         private HashSet<Middleware> _middleware;
         private Node _root;
-        private Context _input;
-        private Context _output;
+        private List<Resource> _input;
+        private List<Resource> _output;
 
-        public Weaver(HashSet<Middleware> middleware, Context input, Context output)
+        public Weaver(HashSet<Middleware> middleware, List<Resource> input, List<Resource> output)
         {
             _middleware = middleware;
             _root = new Node();
@@ -21,23 +21,9 @@ namespace CodeNet
             _output = output;
         }
 
-        public int MoveRank(Middleware next)
+        public Context Execute(Context context)
         {
-            int rank = 0;
-
-            for(Resource resource in next.Out)
-            {
-
-            }
-        }
-
-        private class Move
-        {
-            public int Rank { get; set; }
-
-            public HashSet<Resource> Before { get; set; }
-
-            public HashSet<Resource> After { get; set; }
+            return _root.Run(context);
         }
 
     }
