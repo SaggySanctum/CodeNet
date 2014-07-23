@@ -35,5 +35,17 @@ namespace CodeNet
 
             return context;
         }
+
+        public bool HasResource(Resource target)
+        {
+            foreach(Resource output in Out())
+            {
+                if(output.equals(target))
+                {
+                    return true;
+                }
+            }
+            return false;
+        } 
     }
 }
