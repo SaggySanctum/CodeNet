@@ -4,21 +4,19 @@ namespace CodeNet
 {
     public class Context
     {
-        public HashSet<Resource> Resources { get; set; }
+        public List<object> Resources { get; set; }
 
-        public int Distance(Context other)
+        public Resource GetResource(Resource target)
         {
-            int distance = 0;
-
-            for(Resource resource in Resources)
+            foreach(object resource in Resources)
             {
-                if (other.Resources.Contains(resource))
+                if (target.Equals(resource))
                 {
-                    distance++;
+                    return (Resource)resource;
                 }
             }
 
-            return distance;
+            return Resource.NotFound;
         }
     }
 }

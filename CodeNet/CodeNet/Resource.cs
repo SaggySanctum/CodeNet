@@ -5,6 +5,13 @@ namespace CodeNet
 {
     public class Resource
     {
+        public static Resource NotFound = new Resource() { Name = "NotFound" };
+
+        public Resource()
+        {
+            Properties = new List<Object>();
+        }
+
         public string Name { get; set; }
 
         public object Object { get; set; }
@@ -22,18 +29,20 @@ namespace CodeNet
 
             var robj = (Resource)obj;
 
-            if (!robj.Name.Equals(Name))
-            {
-                return false;
-            }
-
             if (!robj.Type.Equals(Type))
             {
                 return false;
             }
 
+            foreach (object property in robj.Properties)
+            {
+                if (!Properties.Contains(property))
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
-
     }
 }

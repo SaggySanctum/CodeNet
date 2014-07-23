@@ -40,7 +40,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Middleware\AddFactory.cs" />
+    <Compile Include="Middleware\AddList.cs" />
+    <Compile Include="Middleware\Physics.cs" />
+    <Compile Include="Middleware\Render.cs" />
+    <Compile Include="Middleware\SortList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\IFactory.cs" />
+    <Compile Include="Resources\Options.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeNet\CodeNet.csproj">
+      <Project>{17692f71-4ffb-45ba-bc41-f7d78cb1e7b8}</Project>
+      <Name>CodeNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
