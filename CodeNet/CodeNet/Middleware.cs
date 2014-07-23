@@ -7,9 +7,9 @@ namespace CodeNet
     {
         public string Name { get; set; }
 
-        public abstract HashSet<Resource> In();
+        public abstract List<Resource> In();
               
-        public abstract HashSet<Resource> Out();
+        public abstract List<Resource> Out();
 
         public abstract Context Logic(Context context);
 
@@ -35,5 +35,17 @@ namespace CodeNet
 
             return context;
         }
+
+        public bool HasResource(Resource target)
+        {
+            foreach(Resource output in Out())
+            {
+                if(output.equals(target))
+                {
+                    return true;
+                }
+            }
+            return false;
+        } 
     }
 }

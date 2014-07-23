@@ -21,13 +21,47 @@ namespace CodeNet
             _output = output;
         }
 
-        public int Cost(List<Middleware> target, _input, _output)
+        public List<string> Cost(List<Middleware> target)
         {
+            List<string> result;
             int cost = 0;
+            List<Resource> inputsAvailable = _input;
+            List<Resource> outputsToSatisfy = _output;
 
-            foreach(step in target)
+            foreach(middlewareAvailible in target)
             {
+                cost++;
+                // Checks to ensure that I can use this resourse at all
+                var canUseThisResourse = true;
+                if(middlewareAvailible.In().count != 0)
+                {
+                    foreach(reqiredInput in middlewareAvailible.In())
+                    {
+                        foreach(givenInput in _input)
+                        {
+                            var fulfilled = false;
+                            if(reqiredInput == givenInput)
+                            {
+                                fulfilled = true;
+                                break;
+                            }
+                        }
 
+                        if(!fulfilled)
+                        {
+                            canUseThisResourse = false;
+                            break;
+                        }
+                    }
+                }
+
+                // Check to see if you fulfill outputs
+                if(canUseThisResourse){
+                    foreach(output in middlewareAvailible.Out())
+                    {
+                        
+                    }
+                }
             }
 
         }
