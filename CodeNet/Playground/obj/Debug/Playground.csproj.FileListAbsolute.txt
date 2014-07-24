@@ -1,0 +1,9 @@
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\obj\Debug\Playground.csprojResolveAssemblyReference.cache
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\bin\Debug\Playground.dll
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\bin\Debug\Playground.pdb
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\bin\Debug\CodeNet.dll
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\bin\Debug\CodeNet.pdb
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\obj\Debug\Playground.dll
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\obj\Debug\Playground.pdb
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\obj\Debug\Playground.RenderForm.resources
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\Playground\obj\Debug\Playground.csproj.GenerateResource.Cache

@@ -1,0 +1,10 @@
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\bin\Debug\CodeNet.dll
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\bin\Debug\Playground.dll
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\bin\Debug\CodeNet.pdb
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\bin\Debug\Playground.pdb
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

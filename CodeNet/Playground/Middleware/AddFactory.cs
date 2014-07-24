@@ -17,13 +17,7 @@ namespace Playground.Middleware
 
         public override Context Logic(Context context)
         {
-            context.Resources.Add(new Resource()
-            {
-                Name = "Factory",
-                Type = typeof(IFactory<T>),
-                Object = new Factory()
-            });
-
+            context.AddResource(Fac, new Factory());
             return context;
         }
 
@@ -31,6 +25,8 @@ namespace Playground.Middleware
         {
             return outputs;
         }
+
+        private static Resource Fac = new Resource() { Type = typeof(IFactory<T>) };
 
         private class Factory : IFactory<T>
         {
@@ -53,7 +49,7 @@ namespace Playground.Middleware
         public static List<Resource> CreateOutputs()
         {
             List<Resource> outs = new List<Resource>();
-            outs.Add(new Resource() { Type = typeof(IFactory<T>) });
+            outs.Add(Fac);
             return outs;
         }
 

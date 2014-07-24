@@ -4,9 +4,14 @@ namespace CodeNet
 {
     public class Node
     {
-        List<Node> Children { get; set; }
+        public Node()
+        {
+            Children = new List<Node>();
+        }
 
-        Middleware Middleware { get; set; }
+        public List<Node> Children { get; set; }
+
+        public Middleware Middleware { get; set; }
 
         public Context Run(Context context)
         {

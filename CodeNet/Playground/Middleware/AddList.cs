@@ -17,15 +17,28 @@ namespace Playground.Middleware
 
         public override Context Logic(Context context)
         {
-            int count = context.
-            List<T> list = new List<T>();
+            int count = 10;
+            IFactory<T> factory = (IFactory<T>)(context.GetResource(Factory).Object);
 
+            List<T> list = new List<T>();
+            for(int c = 0; c < count; c++)
+            {
+                list.Add(factory.Create());
+            }
+
+            context.AddResource(List, list);
+
+            return context;
         }
 
         public override List<Resource> Out()
         {
             return outputs;
         }
+
+        private static Resource Factory = new Resource() { Type = typeof(IFactory<T>) };
+
+        private static Resource List = new Resource() { Type = typeof(List<T>) };
 
         private static List<Resource> inputs = CreateInputs();
 
@@ -34,16 +47,14 @@ namespace Playground.Middleware
         public static List<Resource> CreateInputs()
         {
             List<Resource> ins = new List<Resource>();
-            ins.Add(new Resource() { Type = typeof(IFactory<T>) });
-            // options hacky, need solution with type and properties
-            ins.Add(new Resource() { Type = typeof(Option<ListOption>) });
+            ins.Add(Factory);
             return ins;
         }
 
         public static List<Resource> CreateOutputs()
         {
             List<Resource> outs = new List<Resource>();
-            outs.Add(new Resource() { Type = typeof(List<T>) });
+            outs.Add(List);
             return outs;
         }
     }

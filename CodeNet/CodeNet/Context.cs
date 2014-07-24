@@ -4,11 +4,16 @@ namespace CodeNet
 {
     public class Context
     {
-        public List<object> Resources { get; set; }
+        public Context()
+        {
+            Resources = new List<Resource>();
+        }
+
+        public List<Resource> Resources { get; set; }
 
         public Resource GetResource(Resource target)
         {
-            foreach(object resource in Resources)
+            foreach (object resource in Resources)
             {
                 if (target.Equals(resource))
                 {
@@ -17,6 +22,16 @@ namespace CodeNet
             }
 
             return Resource.NotFound;
+        }
+
+        public void AddResource(Resource target, object value)
+        {
+            Resources.Add(new Resource()
+            {
+                Type = target.Type,
+                Properties = target.Properties,
+                Object = value
+            });
         }
     }
 }

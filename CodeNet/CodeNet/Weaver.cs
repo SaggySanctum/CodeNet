@@ -21,49 +21,103 @@ namespace CodeNet
             _output = output;
         }
 
-        public List<string> Cost(List<Middleware> target)
+        private Value Build(Middleware middleware, List<Resource> built)
         {
-            List<string> result;
-            int cost = 0;
-            List<Resource> inputsAvailable = _input;
-            List<Resource> outputsToSatisfy = _output;
+            List<Resource> updated = Clone(built);
+            AddAll(updated, middleware.Out());
 
-            foreach(middlewareAvailible in target)
+            var value = new Value()
             {
-                cost++;
-                // Checks to ensure that I can use this resourse at all
-                var canUseThisResourse = true;
-                if(middlewareAvailible.In().count != 0)
+                Node = new Node()
                 {
-                    foreach(reqiredInput in middlewareAvailible.In())
-                    {
-                        foreach(givenInput in _input)
-                        {
-                            var fulfilled = false;
-                            if(reqiredInput == givenInput)
-                            {
-                                fulfilled = true;
-                                break;
-                            }
-                        }
+                    Middleware = middleware
+                },
+                Completed = Completed(updated),
+                Missing = Missing(middleware, built)
+            };
 
-                        if(!fulfilled)
-                        {
-                            canUseThisResourse = false;
-                            break;
-                        }
-                    }
-                }
+            if(value.Missing == 0 && value.Completed == _output.Count)
+            {
+                return value;
+            }
 
-                // Check to see if you fulfill outputs
-                if(canUseThisResourse){
-                    foreach(output in middlewareAvailible.Out())
-                    {
-                        
-                    }
+            List<Value> values = new List<Value>();
+            foreach (Middleware m in _middleware)
+            {
+                updated = Clone(built);
+                AddAll(updated, middleware.Out());
+                values.Add(Build(m, updated));
+            }
+
+            values = Sort(values);
+        }
+
+        private List<Value> Sort(List<Value> values)
+        {
+            return values.OrderBy(v => v.Completed - v.Missing).ToList();
+        }
+
+        private class Value
+        {
+            public Node Node { get; set; }
+
+            public int Completed { get; set; }
+
+            public int Missing { get; set; }
+
+        }
+
+        private int Missing(Middleware middleware, List<Resource> built)
+        {
+            int missing = 0;
+
+            foreach(Resource r in middleware.In())
+            {
+                if (!built.Contains(r))
+                {
+                    missing++;
                 }
             }
 
+            return missing;
+        }
+
+        private int Completed(List<Resource> built)
+        {
+            int value = 0;
+            
+            foreach(Resource r in _output)
+            {
+                if (built.Contains(r))
+                {
+                    value++;
+                }
+            }
+
+            return value;
+        }
+
+        private static List<Resource> Clone(List<Resource> other)
+        {
+            List<Resource> c = new List<Resource>();
+            AddAll(c, other);
+            return c;
+        }
+
+        private static void RemoveAll(List<Resource> dst, List<Resource> rem)
+        {
+            foreach(Resource r in rem)
+            {
+                dst.Remove(r);
+            }
+        }
+
+        private static void AddAll(List<Resource> dst, List<Resource> add)
+        {
+            foreach(Resource r in add)
+            {
+                dst.Add(r);
+            }
         }
 
         public Context Execute(Context context)

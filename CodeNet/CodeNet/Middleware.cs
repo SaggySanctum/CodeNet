@@ -40,7 +40,7 @@ namespace CodeNet
         {
             foreach(Resource output in Out())
             {
-                if(output.equals(target))
+                if(output.Equals(target))
                 {
                     return true;
                 }

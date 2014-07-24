@@ -34,6 +34,8 @@ namespace CodeNet
                 return false;
             }
 
+
+            // TODODODODODODODO fix
             foreach (object property in robj.Properties)
             {
                 if (!Properties.Contains(property))

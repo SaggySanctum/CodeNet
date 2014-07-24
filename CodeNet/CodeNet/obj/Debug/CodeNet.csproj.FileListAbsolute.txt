@@ -1,0 +1,5 @@
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\CodeNet\obj\Debug\CodeNet.csprojResolveAssemblyReference.cache
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\CodeNet\bin\Debug\CodeNet.dll
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\CodeNet\bin\Debug\CodeNet.pdb
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\CodeNet\obj\Debug\CodeNet.dll
+C:\Users\t-benbro\Desktop\workspace\CodeNet\CodeNet\CodeNet\obj\Debug\CodeNet.pdb
